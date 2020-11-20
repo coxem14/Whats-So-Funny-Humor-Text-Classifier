@@ -16,11 +16,11 @@
 
 ## Back-up 1: Humor Classification and Joke Generator
 * https://www.kaggle.com/moradnejad/200k-short-texts-for-humor-detection
-> * Build model(s) to classify text as humorous or serious
-> * Identify different clusters/topics within humorous text
-> * Identify different clusters/topics of serious text
-> * Create a program to generate jokes
-> * Reservation:
+* Build model(s) to classify text as humorous or serious
+* Identify different clusters/topics within humorous text
+* Identify different clusters/topics of serious text
+* Create a program to generate jokes
+* Reservation:
 >      * Dataset looks pretty clean and only has 2 columns - maybe not complicated enough
 
 ## Back-up 2: Expand on Capstone 1: MoviEDA-Predicting-Box-Office-Revenues
