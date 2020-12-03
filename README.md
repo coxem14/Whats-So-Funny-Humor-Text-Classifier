@@ -48,11 +48,19 @@ After loading the dataset into Jupyter Notebook using Pandas, I started my analy
     <img src = ''>
 </p>
 
+<p align = 'center'>
+    <img src = ''>
+</p>
+
+<p align = 'center'>
+    <img src = ''>
+</p>
+
 The dataframe has two columns, 'text' and 'humor'. I used .info(), .unique(), and .value_counts() to inspect the dataframe. In all, there were 200k non-null rows. The text column contained short text strings, and the humor column contained either True or False boolean values. There were exactly 100k each of True and False labels.
 
 ### Word Clouds
 
-To get an idea of what words were used most frequently in the humorous texts and the serious texts, I created word clouds. The word cloud generator takes a single string of text, so I created a few functions that I could use to get the text from my dataframe and clean it up and generate a word cloud.
+To get an idea of what words were used most frequently in the humorous texts and the serious texts, I created word clouds. The word cloud generator takes a single string of text, so I created a few functions that I could use to get the text from my dataframe, clean it up, and generate a word cloud.
 
 ```
   import string
@@ -64,12 +72,14 @@ To get an idea of what words were used most frequently in the humorous texts and
 
   def clean_corpus(X):
     '''
-    Takes in a series or list of strings and returns one string of cleaned text.
+    Takes in a series or list of strings.
+    Returns one string of cleaned text.
     '''
     # lowercase the strings
     corpus = [text.lower() for text in X] 
 
-    # declare regular expression tokenizer, and split strings into words while keeping contractions together
+    # declare regular expression tokenizer
+    # split strings into words while keeping contractions together
     tokenizer = RegexpTokenizer("[\w']+")
     tokens = list(map(tokenizer.tokenize, corpus)) 
     
@@ -99,7 +109,7 @@ I also thought it would be fun to play around with the display of the word cloud
 </p>
 
 <p align = 'center'>
-    <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/wc_serious.png>
+    <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/wc_serious.png'>
 </p>
 
 
