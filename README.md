@@ -108,9 +108,25 @@ I also thought it would be fun to play around with the display of the word cloud
     <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/wc_humor.png'>
 </p>
 
+Top 10 words in humourous texts: call, say, one, know, go, make, what', joke, peopl, want
+
+Humorous texts patterns seem to be: 
+> * What did one blank say to the blank? Punchline
+> * What do you call a blank that blank? Punchline
+> * What's the difference between blank and blank? Punchline
+> * A blank walks into a bar
+> * 'Knock Knock' jokes
+
 <p align = 'center'>
     <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/wc_serious.png'>
 </p>
+
+Top 10 words in serious texts: photo, video, new, say, donald trump, trump, make, one, kid, take
+
+Serious texts patterns seem to be:
+> * News headlines
+> * Article/Blog post titles
+
 
 
 ## Models 
@@ -121,7 +137,9 @@ How can I go back and change the model to improve performance
 ## Final Thoughts
 
 Recap important findings
-Next steps
+
+Next steps:
+Further cleaning for word clouds
 
 Things to look into: n-grams
 
