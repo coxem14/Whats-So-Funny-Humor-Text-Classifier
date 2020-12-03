@@ -18,19 +18,12 @@
     * [](#)
 4. [Future Ideas](#)
 
-* https://www.kaggle.com/moradnejad/200k-short-texts-for-humor-detection
-* Build model(s) to classify text as humorous or serious
-* Identify different clusters/topics within humorous text
-* Identify different clusters/topics of serious text
-* Create a program to generate jokes
 
 ## Background
 
 Intro for why text classification is useful and in particular applications for humor detection
 
 ## Dataset
-
-
 
 https://www.kaggle.com/moradnejad/200k-short-texts-for-humor-detection
 
@@ -111,11 +104,11 @@ I also thought it would be fun to play around with the display of the word cloud
 Top 10 words in humourous texts: call, say, one, know, go, make, what', joke, peopl, want
 
 Humorous texts patterns seem to be: 
-> * What did one blank say to the blank? Punchline
-> * What do you call a blank that blank? Punchline
-> * What's the difference between blank and blank? Punchline
-> * A blank walks into a bar
-> * 'Knock Knock' jokes
+* What did one blank say to the blank? Punchline
+* What do you call a blank that blank? Punchline
+* What's the difference between blank and blank? Punchline
+* A blank walks into a bar
+* 'Knock Knock' jokes
 
 <p align = 'center'>
     <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/wc_serious.png'>
@@ -124,15 +117,49 @@ Humorous texts patterns seem to be:
 Top 10 words in serious texts: photo, video, new, say, donald trump, trump, make, one, kid, take
 
 Serious texts patterns seem to be:
-> * News headlines
-> * Article/Blog post titles
+* News headlines (new, video, watch, photo, report, first, say)
+* Article/Blog post titles
+* Donald Trump comes up a lot
 
+## Train, Test, Split
 
+I defined my X as the text column of my dataframe, and y as the humor column.
 
-## Models 
+Before I started training my models, I used sklearn's train_test_split function to split X and y into training sets and test sets. I used a test_size of 0.25, shuffled the data, and stratefied the split on y so I could ensure the datasets had a balanced ratio of humorous and serious texts.
 
-What features did I use to predict with, how important where those features
-How can I go back and change the model to improve performance
+## Model Selection
+
+I wanted to build a variety of models to see which algorithms performed the best classifications. I used sklearn for all the models.
+
+The primary supervised learning models I used are as follows:
+* Multinomial Naive Bayes
+* Bernoulli Naive Bayes
+
+I also explored:
+* Random Forest Classifier
+* Multilayer Perceptron
+* KMeans Clustering
+
+### Pipelines
+
+```
+mnb_pipeline = Pipeline([('tfidf', TfidfVectorizer()),
+                         ('model', MultinomialNB())])
+```
+For each model, I used the TfidfVectorizer to featurize the texts. I found that limiting the number of features and removing stopwords resulted in models with lower accuracy than the default settings.
+
+For the Naive Bayes models, I also used the default settings (alpha=1.0).
+
+### Fitting the Models
+
+I wanted to see how the models performed with cleaned and uncleaned data inputs, so I ran X_train and X_test through the corpus cleaner function prior to fitting and predicting, respectively.
+
+I fit each model with X_train and y_train, got the predictions, and looked at the accuracy, precision, recall scores, and compared confusion matrices.
+
+<p align = 'center'>
+    <img src = ''>
+</p>
+
 
 ## Final Thoughts
 
@@ -140,6 +167,11 @@ Recap important findings
 
 Next steps:
 Further cleaning for word clouds
+Further tuning for models
+Test multiple ks for KMeans
+PCA to see which latent features are most important
+CNN/RNN
+
 
 Things to look into: n-grams
 
