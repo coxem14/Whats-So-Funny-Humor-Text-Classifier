@@ -14,9 +14,6 @@
 __[quickmeme](https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.quickmeme.com%2Fmeme%2F3jz8&psig=AOvVaw0pZpkhxvESUZWK5VQ8VAIn&ust=1607139073503000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPiHzumxs-0CFQAAAAAdAAAAABAP)__
 
 ## Table of Contents
-- [What's So Funny? - Humor Text Classifier](#whats-so-funny---humor-text-classifier)
-      - [Erin Cox](#erin-cox)
-      - [https://github.com/coxem14/Capstone-2](#httpsgithubcomcoxem14capstone-2)
   - [Table of Contents](#table-of-contents)
   - [Background - NEEDS UPDATED](#background---needs-updated)
   - [Data - NEEDS UPDATED](#data---needs-updated)
@@ -377,6 +374,9 @@ The ROC AUC score for the model is 0.979.
 
 The model with the largest AUC: Multilayer Perceptron
 ```
+
+[Back to Top](#Table-of-Contents)
+
 ## Problem Words
 
 I wanted to look into the misclassified texts to see the words with which the model has the most trouble.
@@ -388,8 +388,9 @@ I wrote a function that would return the corpus for the misclassifications (over
 
 Top 10 words in misclassified texts: say, make, want, people, go, one, kid, day, know, thing
 
+[Back to Top](#Table-of-Contents)
 
-### KMeans
+## KMeans
 
 Initially, I wanted to see what only 2 clusters would look like for the dataset with KMeans.
 
@@ -472,9 +473,11 @@ For n_clusters = 2 The average silhouette_score is : 0.01396
     <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/KMeans_silhouette.png'>
 </p>
 
+[Back to Top](#Table-of-Contents)
+
 ## Results from cohort submissions:
 
-### MLP
+### MLP Predictions
 ```
 Text: When the prosecuting attorney asked Gucci Mane if he was guilty he said, 'bitch I might be.'
 Prediction: Humorous
@@ -517,7 +520,7 @@ Prediction: Humorous
 Label: Humorous
 ```
 
-### Bernoulli NB
+### Bernoulli NB Predictions
 ```
 Text: When the prosecuting attorney asked Gucci Mane if he was guilty he said, 'bitch I might be.'
 Prediction: Humorous
@@ -560,19 +563,19 @@ Prediction: Humorous
 Label: Humorous
 ```
 
-## Final Thoughts
+## Final Thoughts - NEEDS UPDATED
 
 Recap important findings
 
 Next steps:
 Further cleaning for word clouds
-Further tuning for models - cross validation, test size
+Further tuning for models - cross validation, test size, n-grams
 Test multiple ks for KMeans
 PCA to see which latent features are most important
+
+
 CNN/RNN
 
-
-Things to look into: n-grams
 
 ### References
 [amueller.github.io/word_cloud](https://amueller.github.io/word_cloud/auto_examples/masked.html#sphx-glr-auto-examples-masked-py)
