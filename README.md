@@ -8,7 +8,7 @@
 ***
 
 <p align = 'center'>
-    <img src = ''>
+    <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/fry_meme.jpg'>
 </p>
 
 ## Table of Contents
