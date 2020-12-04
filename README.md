@@ -168,10 +168,62 @@ For the Naive Bayes models, I also used the default settings (alpha=1.0).
 
 I wanted to see how the models performed with cleaned and uncleaned data inputs, so I ran X_train and X_test through the corpus cleaner function prior to fitting and predicting, respectively.
 
-I fit each model with X_train and y_train, got the predictions, and looked at the accuracy, precision, recall scores, and compared confusion matrices.
+#### Multinomial vs Bernoulli Naive Bayes
+
+To determine which Naive Bayes model performed the best, I fit each model with X_train and y_train, got the predictions, and looked at the accuracy, precision, recall scores, confusion matrices and ROC plots.
 
 <p align = 'center'>
     <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/confusion_matrices.png'>
+</p>
+
+```
+Model: Multinomial Naive Bayes
+The accuracy on the test set is 0.916.
+The precision on the test set is 0.901.
+The recall on the test set is 0.936.
+
+Model: Multinomial Naive Bayes - Cleaned
+The accuracy on the test set is 0.893.
+The precision on the test set is 0.890.
+The recall on the test set is 0.896.
+
+Model: Bernoulli Naive Bayes
+The accuracy on the test set is 0.921.
+The precision on the test set is 0.907.
+The recall on the test set is 0.938.
+
+Model: Bernoulli Naive Bayes - Cleaned
+The accuracy on the test set is 0.895.
+The precision on the test set is 0.882.
+The recall on the test set is 0.912.
+
+The model with the highest accuracy: Bernoulli Naive Bayes
+The model with the highest precision: Bernoulli Naive Bayes
+The model with the highest recall: Bernoulli Naive Bayes
+```
+
+The Bernoulli Naive Bayes model performed better across the board than Multinomial Naive Bayes. The cleaned versions performed worse overall. 
+
+Overall, the cost of thinking something is humorous when it is really serious (false positive) is higher than thinking something is serious when is meant to be humorous (false negative). While accuracy is good, because I want to limit the number of false positives, precision would be the best metric to judge the performance of the model.
+
+An even better way, though, would be to plot the receiver operating characteristic (ROC) curve and calculating the area under the curve. The AUC score will be close to 0.5 if the classifier isn't much better than random guessing, while it will be 1.0 for perfect classification.
+
+<p align = 'center'>
+    <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/NB_ROC.png'>
+</p>
+
+```
+Model: Multinomial Naive Bayes
+The ROC AUC score for the model is 0.975.
+
+Model: Bernoulli Naive Bayes
+The ROC AUC score for the model is 0.977.
+
+The model with the largest AUC: Bernoulli Naive Bayes
+```
+
+<p align = 'center'>
+    <img src = ''>
 </p>
 
 
