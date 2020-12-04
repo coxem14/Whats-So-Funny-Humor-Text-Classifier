@@ -101,24 +101,44 @@ def fit_predict_model_accuracy(pipeline, X_train, y_train, X_test, y_test):
 def create_confusion_matrix(y_test, predicted, targets, ax):
     cm = confusion_matrix(y_test, predicted)
     sns.set(font_scale=1.7)
-    sns.heatmap(cm.T, square = True, annot = True, fmt = 'd', 
+    sns.heatmap(cm.T, square = True, annot = True, fmt = 'd', cmap='magma',
             xticklabels = targets, yticklabels = targets, ax=ax)
 
 
-def get_predictions(text, model):
-    prediction = model.predict([text])
+def get_predictions(text, pipeline):
+    prediction = pipeline.predict([text])
     return prediction
 
 
+def get_multiple_predictions(text_list, label_list, pipeline):
+    for idx, text in enumerate(text_list):
+        if get_predictions(text=text, pipeline=pipeline)[0] == True:
+            pred = 'Humorous'
+        else: pred = 'Serious'
+        print(f'Text: {text}\nPrediction: {pred}\nLabel: {label_list[idx]}\n')
 
 
+def get_misclassified_corpus(X_test, y_test, predicted):
+    
+    misclass = np.where((y_test != predicted))[0]
+    misclass_idx = list(misclass)
+    misclass_corpus = []
+    for idx in misclass_idx:
+        misclass_corpus.append(X_test.iloc[idx])
 
-
-
-
-
-
-
+    fp = np.where((y_test == False) & (predicted == True))[0]
+    fp_idx = list(fp)
+    fp_corpus = []
+    for idx in fp_idx:
+        fp_corpus.append(X_test.iloc[idx])
+    
+    fn = np.where((y_test == True) & (predicted == False))[0]
+    fn_idx = list(fn)
+    fn_corpus = []
+    for idx in fn_idx:
+        fn_corpus.append(X_test.iloc[idx])
+            
+    return misclass_corpus, fp_corpus, fn_corpus
 
 
 if __name__ == "__main__":
