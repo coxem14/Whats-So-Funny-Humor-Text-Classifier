@@ -28,7 +28,7 @@ __[quickmeme](https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.quickmeme.com
     - [Random Forest Classifier](#random-forest-classifier)
     - [Multilayer Perceptron](#multilayer-perceptron)
   - [Problem Words](#problem-words)
-    - [KMeans](#kmeans)
+  - [KMeans](#kmeans)
   - [Results from cohort submissions:](#results-from-cohort-submissions)
     - [MLP](#mlp)
     - [Bernoulli NB](#bernoulli-nb)
