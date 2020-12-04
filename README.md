@@ -15,8 +15,8 @@ __[quickmeme](https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.quickmeme.com
 
 ## Table of Contents
   - [Table of Contents](#table-of-contents)
-  - [Background - NEEDS UPDATED](#background---needs-updated)
-  - [Data - NEEDS UPDATED](#data---needs-updated)
+  - [Background](#background)
+  - [Data](#data)
   - [EDA](#eda)
     - [Initial Inspection of Dataset](#initial-inspection-of-dataset)
     - [Word Clouds](#word-clouds)
