@@ -36,15 +36,19 @@ __[quickmeme](https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.quickmeme.com
     - [References](#references)
 
 
-## Background - NEEDS UPDATED
+## Background
 
-Intro for why text classification is useful and in particular applications for humor detection
+<p align = 'center'>
+    <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/131003183320-siri-jokes-4-story-top.jpg'>
+</p>
 
-## Data - NEEDS UPDATED
+Data in the form of unstructured text is everywhere from consumer reviews, social media, emails, forums, blogs, online news platforms, web pages, survey responses - the list goes on. Natural language processing allows data scientists to analyze these data to automate processes, which makes businesses more efficient. For example, millions of employees' inboxes do not get flooded with spam messages because of automated spam filters. Chatbots are helping many organizations achieve a higher level of customer service, and now many consumers have virtual assistants like Alexa in their homes, and Google Assistant and Siri on their phones. Intent detection, like humor detection, is critical to improving and expanding the applications of natural language processing.
 
-https://www.kaggle.com/moradnejad/200k-short-texts-for-humor-detection
+## Data
 
-https://arxiv.org/abs/2004.12765 ColBERT: Using BERT Sentence Embedding for Humor Detection Created by Issa Annamoradnejad and team at Cornell University
+The dataset I analyzed was created by Issa Annamoradnejad and team at Cornell University and was used in the paper [ColBERT: Using BERT Sentence Embedding for Humor Detection](https://arxiv.org/abs/2004.12765). I downloaded the dataset from [Kaggle](https://www.kaggle.com/moradnejad/200k-short-texts-for-humor-detection).
+
+The dataset includes 200k short text samples labeled as either True or False for humor.
 
 ## EDA
 
