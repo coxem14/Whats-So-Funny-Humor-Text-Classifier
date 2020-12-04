@@ -98,6 +98,11 @@ To get an idea of what words were used most frequently in the humorous texts and
 I also thought it would be fun to play around with the display of the word clouds, so I masked the colors with some images. The code I referenced to do this can be found __[here](https://amueller.github.io/word_cloud/auto_examples/masked.html#sphx-glr-auto-examples-masked-py)__.
 
 <p align = 'center'>
+    <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/old_wc.png'>
+</p>
+
+
+<p align = 'center'>
     <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/wc_humor.png'>
 </p>
 
@@ -123,9 +128,17 @@ Serious texts patterns seem to be:
 
 ## Train, Test, Split
 
-I defined my X as the text column of my dataframe, and y as the humor column.
+```
+X = texts['text']
+y = texts['humor']
 
-Before I started training my models, I used sklearn's train_test_split function to split X and y into training sets and test sets. I used a test_size of 0.25, shuffled the data, and stratefied the split on y so I could ensure the datasets had a balanced ratio of humorous and serious texts.
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, 
+                                                          shuffle=True, 
+                                                          stratify=y)
+```
+Before I started training my models, I used sklearn's train_test_split function to split X and y into training sets and test sets. I stratified the split on y so I could ensure the datasets had a balanced ratio of humorous and serious texts.
+
+The resulting training datasets had 150,000 samples, while the testing datasets had 50,000 samples.
 
 ## Model Selection
 
@@ -167,7 +180,7 @@ Recap important findings
 
 Next steps:
 Further cleaning for word clouds
-Further tuning for models
+Further tuning for models - cross validation, test size
 Test multiple ks for KMeans
 PCA to see which latent features are most important
 CNN/RNN
