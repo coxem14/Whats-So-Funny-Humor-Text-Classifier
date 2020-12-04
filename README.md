@@ -422,7 +422,7 @@ For n_clusters = 2 The average silhouette_score is : 0.01396
 ```
 
 <p align = 'center'>
-    <img src = ''>
+    <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/KMeans_silhouette.png'>
 </p>
 
 ## Results from cohort submissions:
