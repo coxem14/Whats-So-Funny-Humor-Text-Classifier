@@ -132,7 +132,7 @@ nltk's RegexTokenizer
     <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/wc_humor.png'>
 </p>
 
-Top 10 words in humourous texts: call, say, one, know, go, make, what', joke, peopl, want
+Top 10 words in humorous texts: call, say, one, know, go, make, what', joke, peopl, want
 
 Humorous texts patterns seem to be: 
 * What did one blank say to the other blank? Punchline
@@ -199,13 +199,7 @@ I wanted to see how the models performed with cleaned and uncleaned data inputs,
 
 ### Multinomial vs Bernoulli Naive Bayes
 
-With text classification, the most common Naive Bayes algorithm used is Multinomial, though Bernoulli can also perform well, especially in the case of short texts. In the case of binary classification, the primary difference between the two algorithms is that Multinomial ignores non-occuring features (just doesn't count them) whereas Bernoulli penalizes the non-occurrence of a feature that is an indicator for the given class.
-
-Multinomial Likeihood - The probability of a word given humorous is the probability of a randomly-chosen word in a randomly-chosen humorous text being the current word
-
-Bernoulli Likelihood - The probability of a word given humorous is the probability of a randomly-selected humorous text containing that word
-
-> It seems to make sense to me that looking at the entire text for a word would be a great approach for short texts.
+With text classification, the most common Naive Bayes algorithm used is Multinomial, though Bernoulli can also perform well, especially in the case of short texts.
 
 To determine which Naive Bayes model performed the best, I fit each model with X_train and y_train, got the predictions, and compared accuracy, precision, recall scores, confusion matrices, and ROC plots.
 
@@ -245,9 +239,9 @@ The model with the highest recall: Bernoulli Naive Bayes
 
 The Bernoulli Naive Bayes model performed better across the board than Multinomial Naive Bayes. The cleaned versions performed worse than their 'unclean' counterparts. 
 
-While accuracy is good, because I want to limit the number of false positives, precision would be the best metric to judge the performance of the model.
+While accuracy is generally a good metric, because I specifically want to limit the number of false positives, precision would be the best metric to judge the performance of the model.
 
-To get a better visual of the performance of the models, I plotted the receiver operating characteristic (ROC) curve and calculated the area under the curve (AUC). The AUC score will be close to 0.5 if the classifier isn't much better than random guessing, while it will be 1.0 for perfect classification.
+To get a better visual of the performance of the models, I plotted the receiver operating characteristic (ROC) curve and calculated the area under the curve (AUC).
 
 <p align = 'center'>
     <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/NB_ROC.png'>
@@ -339,13 +333,13 @@ The recall on the test set is 0.909.
 The ROC AUC score for the model is 0.968.
 ```
 
-Much better, still not quite on par with Naive Bayes. I think there is still room to improve, but RF is so much more computationally expensive for this type of classification, I don't think it is worth it.
+Much better, still not quite on par with Naive Bayes. I think there is still room to improve, but RF is so much more computationally expensive for this type of classification, it's probably not worth it.
 
 [Back to Top](#Table-of-Contents)
 
 ### Multilayer Perceptron
 
-With the mlp model, I tried a few different max features (1000, 5000, and 10,000). There was no difference in accuracy between 5000 and 10000, so I decided to limit it to save computation. I limited the batch size and hidden layer size as well (mostly just to make it run faster). My very basic first attempt resulted in my best model yet - I think there is definitely still room for improvement!
+With a very basic mlp model, I was able to achieve the best model yet! I think there is still room for improvement.
 
 ```
 mlp_pipeline = Pipeline([('tfidf', TfidfVectorizer(max_features=5000)),
