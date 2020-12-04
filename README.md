@@ -97,11 +97,12 @@ To get an idea of what words were used most frequently in the humorous texts and
 ```
 I also thought it would be fun to play around with the display of the word clouds, so I masked the colors with some images. The code I referenced to do this can be found __[here](https://amueller.github.io/word_cloud/auto_examples/masked.html#sphx-glr-auto-examples-masked-py)__.
 
+nltk's word_tokenize
 <p align = 'center'>
     <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/old_wc.png'>
 </p>
 
-
+nltk's RegexTokenizer
 <p align = 'center'>
     <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/wc_humor.png'>
 </p>
