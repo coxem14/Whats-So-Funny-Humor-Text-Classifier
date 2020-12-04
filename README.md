@@ -477,11 +477,13 @@ For n_clusters = 2 The average silhouette_score is : 0.01396
 
 ### MLP Predictions
 ```
-Text: When the prosecuting attorney asked Gucci Mane if he was guilty he said, 'bitch I might be.'
+Text: When the prosecuting attorney asked Gucci Mane if he was guilty he said, 
+'bitch I might be.'
 Prediction: Humorous
 Label: Humorous
 
-Text: Camus says that when you wish yourself into the future you commit suicide by wishing yourself closer to your death.
+Text: Camus says that when you wish yourself into the future you commit suicide by wishing
+yourself closer to your death.
 Prediction: Serious
 Label: Serious
 
@@ -489,7 +491,8 @@ Text: How did the random variable get into the club? By showing a fake i.i.d.
 Prediction: Humorous
 Label: Humorous
 
-Text: Laugh it up! Humor is universal across human cultures — and fuels psychological research on everything from social perception to emotion
+Text: Laugh it up! Humor is universal across human cultures — and fuels psychological 
+research on everything from social perception to emotion
 Prediction: Humorous
 Label: Serious
 
@@ -497,11 +500,13 @@ Text: Saddest 6 word story: "Soup of the Day: No Soup."
 Prediction: Serious
 Label: Humorous
 
-Text: My mom always told me I wouldn’t accomplish anything by lying in bed all day. But look at me now, ma! I’m saving the world!
+Text: My mom always told me I wouldn’t accomplish anything by lying in bed all day. 
+But look at me now, ma! I’m saving the world!
 Prediction: Humorous
 Label: Humorous
 
-Text: If I keep stress-eating at this level, the buttons on my shirt will start socially distancing from each other.
+Text: If I keep stress-eating at this level, the buttons on my shirt will start socially
+ distancing from each other.
 Prediction: Humorous
 Label: Humorous
 
@@ -520,11 +525,13 @@ Label: Humorous
 
 ### Bernoulli NB Predictions
 ```
-Text: When the prosecuting attorney asked Gucci Mane if he was guilty he said, 'bitch I might be.'
+Text: When the prosecuting attorney asked Gucci Mane if he was guilty he said, 
+'bitch I might be.'
 Prediction: Humorous
 Label: Humorous
 
-Text: Camus says that when you wish yourself into the future you commit suicide by wishing yourself closer to your death.
+Text: Camus says that when you wish yourself into the future you commit suicide by wishing 
+yourself closer to your death.
 Prediction: Humorous
 Label: Serious
 
@@ -532,7 +539,8 @@ Text: How did the random variable get into the club? By showing a fake i.i.d.
 Prediction: Humorous
 Label: Humorous
 
-Text: Laugh it up! Humor is universal across human cultures — and fuels psychological research on everything from social perception to emotion
+Text: Laugh it up! Humor is universal across human cultures — and fuels psychological 
+research on everything from social perception to emotion
 Prediction: Serious
 Label: Serious
 
@@ -540,11 +548,13 @@ Text: Saddest 6 word story: "Soup of the Day: No Soup."
 Prediction: Humorous
 Label: Humorous
 
-Text: My mom always told me I wouldn’t accomplish anything by lying in bed all day. But look at me now, ma! I’m saving the world!
+Text: My mom always told me I wouldn’t accomplish anything by lying in bed all day.
+But look at me now, ma! I’m saving the world!
 Prediction: Humorous
 Label: Humorous
 
-Text: If I keep stress-eating at this level, the buttons on my shirt will start socially distancing from each other.
+Text: If I keep stress-eating at this level, the buttons on my shirt will start socially
+ distancing from each other.
 Prediction: Humorous
 Label: Humorous
 
