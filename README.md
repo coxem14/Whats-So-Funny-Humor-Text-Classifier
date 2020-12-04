@@ -45,6 +45,8 @@ After loading the dataset into Jupyter Notebook using Pandas, I started my analy
 
 The dataframe has two columns, 'text' and 'humor'. I used .info(), .unique(), and .value_counts() to inspect the dataframe. 
 
+In all, there were 200k non-null rows. The text column contained short text strings, and the humor column contained either True or False boolean values. There were exactly 100k each of True and False labels.
+
 <p align = 'center'>
     <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/texts_df_info.png'>
 </p>
@@ -52,8 +54,6 @@ The dataframe has two columns, 'text' and 'humor'. I used .info(), .unique(), an
 <p align = 'center'>
     <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/texts_humor_value_counts.png'>
 </p>
-
-In all, there were 200k non-null rows. The text column contained short text strings, and the humor column contained either True or False boolean values. There were exactly 100k each of True and False labels.
 
 ### Word Clouds
 
@@ -343,6 +343,17 @@ The ROC AUC score for the model is 0.979.
 
 The model with the largest AUC: Multilayer Perceptron
 ```
+## Problem Words
+
+I wanted to look into the misclassified texts to see the words with which the model has the most trouble.
+I wrote a function that would return the corpus for the misclassifications (overall misclassifications, false positives, and false negatives). I could then use my make_word_cloud function to generate a word cloud easily.
+
+<p align = 'center'>
+    <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/misclass_wc.png'>
+</p>
+
+Top 10 words in misclassified texts: say, make, want, people, go, one, kid, day, know, thing
+
 
 ### KMeans
 
@@ -362,7 +373,9 @@ top_centroids = kmeans.cluster_centers_.argsort()[:,-1:-(n_features+1):-1]
 print("top features (words) for each cluster:")
 for num, centroid in enumerate(top_centroids):
     print(f"{num}, {', '.join(features[i] for i in centroid)}")
+```
 
+```
 top features (words) for each cluster:
 0, like, trump, new, just, people, does, don, photos, make, know
 1, did, say, hear, cross, road, got, man, chicken, know, guy
