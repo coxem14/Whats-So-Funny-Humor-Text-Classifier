@@ -139,7 +139,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25,
 ```
 Before I started training my models, I used sklearn's train_test_split function to split X and y into training sets and test sets. I stratified the split on y so I could ensure the datasets had a balanced ratio of humorous and serious texts.
 
-The resulting training datasets had 150,000 samples, while the testing datasets had 50,000 samples.
+The resulting training datasets had 150,000 texts, while the testing datasets had 50,000 texts.
 
 ## Model Selection
 
@@ -169,6 +169,14 @@ For the Naive Bayes models, I also used the default settings (alpha=1.0).
 I wanted to see how the models performed with cleaned and uncleaned data inputs, so I ran X_train and X_test through the corpus cleaner function prior to fitting and predicting, respectively.
 
 #### Multinomial vs Bernoulli Naive Bayes
+
+With text classification, the most common Naive Bayes algorithm used is Multinomial, though Bernoulli can also perform well, especially in the case of short texts. In the case of binary classification, the primary difference between the two algorithms is that Multinomial ignores non-occuring features (just doesn't count them) whereas Bernoulli penalizes the non-occurrence of a feature that is an indicator for the given class.
+
+Multinomial Likeihood - The probability of a word given humorous is the probability of a randomly-chosen word in a randomly-chosen humorous text being the current word
+
+Bernoulli Likelihood - The probability of a word given humorous is the probability of a randomly-selected humorous text containing that word
+
+It seems to make sense to me that looking at the entire document, in this case text, for a word would be better for short documents.
 
 To determine which Naive Bayes model performed the best, I fit each model with X_train and y_train, got the predictions, and looked at the accuracy, precision, recall scores, confusion matrices and ROC plots.
 
@@ -206,7 +214,7 @@ The Bernoulli Naive Bayes model performed better across the board than Multinomi
 
 Overall, the cost of thinking something is humorous when it is really serious (false positive) is higher than thinking something is serious when is meant to be humorous (false negative). While accuracy is good, because I want to limit the number of false positives, precision would be the best metric to judge the performance of the model.
 
-An even better way, though, would be to plot the receiver operating characteristic (ROC) curve and calculating the area under the curve. The AUC score will be close to 0.5 if the classifier isn't much better than random guessing, while it will be 1.0 for perfect classification.
+An even better way, though, would be to plot the receiver operating characteristic (ROC) curve and calculate the area under the curve. The AUC score will be close to 0.5 if the classifier isn't much better than random guessing, while it will be 1.0 for perfect classification.
 
 <p align = 'center'>
     <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/NB_ROC.png'>
@@ -221,6 +229,15 @@ The ROC AUC score for the model is 0.977.
 
 The model with the largest AUC: Bernoulli Naive Bayes
 ```
+
+#### Random Forest Classifier
+
+#### MLP
+
+#### KMeans
+
+
+
 
 <p align = 'center'>
     <img src = ''>
