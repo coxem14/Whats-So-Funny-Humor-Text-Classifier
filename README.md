@@ -571,18 +571,23 @@ Prediction: Humorous
 Label: Humorous
 ```
 
-## Final Thoughts - NEEDS UPDATED
+## Final Thoughts
 
-Recap important findings
-
-Next steps:
-Further cleaning for word clouds
-Further tuning for models - cross validation, test size, n-grams
-Test multiple ks for KMeans
-PCA to see which latent features are most important
+### Recap of Findings:
+* MLP and Bernoulli Naive Bayes Models performed the best at classifying the texts and predicting on unseen data. 
+* Common misclassified word included many stopwords, and words which are equally likely to be present in humorous and serious texts.
 
 
-CNN/RNN
+### Future Steps:
+* Further cleaning for word clouds
+* Further tuning to improve models
+  * Train, test, split - try cross validation, changing test size
+  * Featurizing Text - explore n-grams (or sequence of words)
+  * Random Forest - more in depth hyperparameter tuning
+  * MLP - more in depth hyperparameter tuning
+  * Test multiple ks for KMeans
+* Explore PCA to see which latent features are most important
+* Explore CNN/RNN
 
 
 ### References
