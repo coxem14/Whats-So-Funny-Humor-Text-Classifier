@@ -14,18 +14,36 @@
 __[quickmeme](https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.quickmeme.com%2Fmeme%2F3jz8&psig=AOvVaw0pZpkhxvESUZWK5VQ8VAIn&ust=1607139073503000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPiHzumxs-0CFQAAAAAdAAAAABAP)__
 
 ## Table of Contents
-1. [Background](#Background)
-2. [Data](#Data)
-3. [Analysis](#Analysis)
-    * [](#)
-4. [Future Ideas](#)
+- [What's So Funny? - Humor Text Classifier](#whats-so-funny---humor-text-classifier)
+      - [Erin Cox](#erin-cox)
+      - [https://github.com/coxem14/Capstone-2](#httpsgithubcomcoxem14capstone-2)
+  - [Table of Contents](#table-of-contents)
+  - [Background - NEEDS UPDATED](#background---needs-updated)
+  - [Data - NEEDS UPDATED](#data---needs-updated)
+  - [EDA](#eda)
+    - [Initial Inspection of Dataset](#initial-inspection-of-dataset)
+    - [Word Clouds](#word-clouds)
+  - [Train, Test, Split](#train-test-split)
+  - [Model Selection](#model-selection)
+    - [Pipelines](#pipelines)
+    - [Fitting the Models](#fitting-the-models)
+    - [Multinomial vs Bernoulli Naive Bayes](#multinomial-vs-bernoulli-naive-bayes)
+    - [Random Forest Classifier](#random-forest-classifier)
+    - [Multilayer Perceptron](#multilayer-perceptron)
+  - [Problem Words](#problem-words)
+    - [KMeans](#kmeans)
+  - [Results from cohort submissions:](#results-from-cohort-submissions)
+    - [MLP](#mlp)
+    - [Bernoulli NB](#bernoulli-nb)
+  - [Final Thoughts](#final-thoughts)
+    - [References](#references)
 
 
-## Background
+## Background - NEEDS UPDATED
 
 Intro for why text classification is useful and in particular applications for humor detection
 
-## Dataset
+## Data - NEEDS UPDATED
 
 https://www.kaggle.com/moradnejad/200k-short-texts-for-humor-detection
 
@@ -33,11 +51,9 @@ https://arxiv.org/abs/2004.12765 ColBERT: Using BERT Sentence Embedding for Humo
 
 ## EDA
 
-### Initial Inspection
+### Initial Inspection of Dataset
 
-Brief summary of what dataset looked like, steps taken to clean, and final dataset I moved forward with
-
-After loading the dataset into Jupyter Notebook using Pandas, I started my analysis by inspecting the data to ensure they were as expected. Below is an example of the first 7 rows of the dataframe.
+After loading the dataset into Jupyter Notebook using Pandas, I started my analysis by inspecting the data to ensure they were as expected.
 
 <p align = 'center'>
     <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/texts_df_head.png'>
@@ -54,6 +70,8 @@ In all, there were 200k non-null rows. The text column contained short text stri
 <p align = 'center'>
     <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/texts_humor_value_counts.png'>
 </p>
+
+[Back to Top](#Table-of-Contents)
 
 ### Word Clouds
 
@@ -99,6 +117,8 @@ To get a visualization of what words were used most frequently in the humorous t
     
     return cleaned_corpus
 ```
+[Back to Top](#Table-of-Contents)
+
 I also thought it would be fun to play around with the display of the word clouds, so I masked the colors with some images. The code I referenced to do this can be found __[here](https://amueller.github.io/word_cloud/auto_examples/masked.html#sphx-glr-auto-examples-masked-py)__.
 
 nltk's word_tokenize
@@ -131,6 +151,8 @@ Serious texts patterns seem to be:
 * Article/Blog post titles
 * Donald Trump comes up a lot
 
+[Back to Top](#Table-of-Contents)
+
 ## Train, Test, Split
 
 ```
@@ -149,7 +171,7 @@ The resulting training datasets had 150,000 texts, while the testing datasets ha
 
 I wanted to build a variety of models to see which algorithms performed the best classifications and predictions. I used sklearn for all the models.
 
-The primary supervised learning models I used are as follows:
+The primary models I built are as follows:
 * Multinomial Naive Bayes
 * Bernoulli Naive Bayes
 
@@ -168,6 +190,8 @@ For each model, I used the TfidfVectorizer to featurize the texts. I found that 
 
 For the Naive Bayes models, I also used the default settings (alpha=1.0).
 
+[Back to Top](#Table-of-Contents)
+
 ### Fitting the Models
 
 I wanted to see how the models performed with cleaned and uncleaned data inputs, so I ran X_train and X_test through the corpus cleaner function prior to fitting and predicting, respectively.
@@ -184,9 +208,13 @@ Bernoulli Likelihood - The probability of a word given humorous is the probabili
 
 To determine which Naive Bayes model performed the best, I fit each model with X_train and y_train, got the predictions, and compared accuracy, precision, recall scores, confusion matrices, and ROC plots.
 
+[Back to Top](#Table-of-Contents)
+
 <p align = 'center'>
     <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/confusion_matrices.png'>
 </p>
+
+Overall, the cost of thinking something is humorous when it is really serious (false positive) is higher than thinking something is serious when is meant to be humorous (false negative). I want to chose the model with the most true positives, and the least false positives.
 
 ```
 Model: Multinomial Naive Bayes
@@ -214,11 +242,11 @@ The model with the highest precision: Bernoulli Naive Bayes
 The model with the highest recall: Bernoulli Naive Bayes
 ```
 
-The Bernoulli Naive Bayes model performed better across the board than Multinomial Naive Bayes. The cleaned versions performed worse overall. 
+The Bernoulli Naive Bayes model performed better across the board than Multinomial Naive Bayes. The cleaned versions performed worse than their 'unclean' counterparts. 
 
-Overall, the cost of thinking something is humorous when it is really serious (false positive) is higher than thinking something is serious when is meant to be humorous (false negative). While accuracy is good, because I want to limit the number of false positives, precision would be the best metric to judge the performance of the model.
+While accuracy is good, because I want to limit the number of false positives, precision would be the best metric to judge the performance of the model.
 
-An even better way, though, would be to plot the receiver operating characteristic (ROC) curve and calculate the area under the curve. The AUC score will be close to 0.5 if the classifier isn't much better than random guessing, while it will be 1.0 for perfect classification.
+To get a better visual of the performance of the models, I plotted the receiver operating characteristic (ROC) curve and calculated the area under the curve (AUC). The AUC score will be close to 0.5 if the classifier isn't much better than random guessing, while it will be 1.0 for perfect classification.
 
 <p align = 'center'>
     <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/NB_ROC.png'>
@@ -233,6 +261,8 @@ The ROC AUC score for the model is 0.977.
 
 The model with the largest AUC: Bernoulli Naive Bayes
 ```
+
+[Back to Top](#Table-of-Contents)
 
 ### Random Forest Classifier
 
@@ -268,6 +298,8 @@ The highest accuracy was with less than 2000 trees.
 </p>
 
 Accuracy increased as max depth increased - makes sense given that decision trees are prone to overfitting if left to make as many splits as they please...
+
+[Back to Top](#Table-of-Contents)
 
 Using the boundaries I explored above, I decided to try using RandomizedSearchCV to see if it could find a better set of parameters.
 
@@ -307,6 +339,8 @@ The ROC AUC score for the model is 0.968.
 ```
 
 Much better, still not quite on par with Naive Bayes. I think there is still room to improve, but RF is so much more computationally expensive for this type of classification, I don't think it is worth it.
+
+[Back to Top](#Table-of-Contents)
 
 ### Multilayer Perceptron
 
@@ -541,7 +575,7 @@ CNN/RNN
 Things to look into: n-grams
 
 ### References
-https://amueller.github.io/word_cloud/auto_examples/masked.html#sphx-glr-auto-examples-masked-py
+[amueller.github.io/word_cloud](https://amueller.github.io/word_cloud/auto_examples/masked.html#sphx-glr-auto-examples-masked-py)
 
 
 [Back to Top](#Table-of-Contents)
