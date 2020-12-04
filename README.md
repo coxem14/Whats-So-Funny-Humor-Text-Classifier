@@ -171,7 +171,7 @@ I wanted to see how the models performed with cleaned and uncleaned data inputs,
 I fit each model with X_train and y_train, got the predictions, and looked at the accuracy, precision, recall scores, and compared confusion matrices.
 
 <p align = 'center'>
-    <img src = ''>
+    <img src = 'https://github.com/coxem14/Capstone-2/blob/main/images/confusion_matrices.png'>
 </p>
 
 
