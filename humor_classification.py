@@ -13,7 +13,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB, BernoulliNB
 from sklearn.pipeline import Pipeline
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, accuracy_score, precision_score, recall_score, roc_curve, silhouette_samples, silhouette_score
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, accuracy_score, precision_score, recall_score, roc_curve, roc_auc_score, silhouette_samples, silhouette_score
 from sklearn.neural_network import MLPClassifier
 from sklearn.cluster import KMeans
 
@@ -23,7 +23,7 @@ import string
 import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
-from nltk.tokenize import RegexpTokenizer
+from nltk.tokenize import RegexpTokenizer, word_tokenize
 from nltk.stem.porter import PorterStemmer as PS
 
 import matplotlib.pyplot as plt
